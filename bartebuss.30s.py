@@ -7,7 +7,7 @@
 # <bitbar.author>OptimusCrime</bitbar.author>
 # <bitbar.author.github>OptimusCrime</bitbar.author.github>
 # <bitbar.desc>Automatically fetches bus departures based on which WiFi you are currently connected to</bitbar.desc>
-# <bitbar.image>http://www.hosted-somewhere/pluginimage</bitbar.image>
+# <bitbar.image>https://raw.githubusercontent.com/OptimusCrime/bitbar-bartebuss/master/docs/image.png</bitbar.image>
 # <bitbar.dependencies>python</bitbar.dependencies>
 # <bitbar.abouturl>https://github.com/OptimusCrime/bitbar-bartebuss</bitbar.abouturl>
 

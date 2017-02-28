@@ -191,7 +191,7 @@ class Departure:
             return '(' + Departure.parse_output_time_string(t) + ')'
 
         # Check if rt and t are similar, if they are output just the real time
-        if set(t['date']) == set(rt['date']) and set(t['time']) == set(rt['time']):
+        if Departure.schedule_realtime_equals(t, rt):
             return Departure.parse_output_time_string(rt)
 
         # Time and real time differs, output real time first, then time parenthesis
@@ -200,6 +200,19 @@ class Departure:
     @staticmethod
     def parse_output_time_string(obj):
         return obj['time']['hour'] + ':' + obj['time']['minute']
+
+    @staticmethod
+    def schedule_realtime_equals(t, rt):
+        for outer in ['date', 'time']:
+            keys = ['day', 'month', 'year']
+            if outer == 'time':
+                keys = ['hour', 'minute']
+
+            for inner in keys:
+                if t[outer][inner] != rt[outer][inner]:
+                    return False
+
+        return True
 
     def __str__(self):
         return str(self.line) + ' ' + str(self.destination) + ': ' + self.output

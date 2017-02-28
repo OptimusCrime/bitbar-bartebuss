@@ -191,11 +191,11 @@ class Departure:
             return '(' + Departure.parse_output_time_string(t) + ')'
 
         # Check if rt and t are similar, if they are output just the real time
-        if set(t) == set(rt):
+        if set(t['date']) == set(rt['date']) and set(t['time']) == set(rt['time']):
             return Departure.parse_output_time_string(rt)
 
-        # Time and real time differs, output time in parenthesis, then real time
-        return '(' + Departure.parse_output_time_string(t) + ') ' + Departure.parse_output_time_string(rt)
+        # Time and real time differs, output real time first, then time parenthesis
+        return Departure.parse_output_time_string(rt) + ' (' + Departure.parse_output_time_string(t) + ')'
 
     @staticmethod
     def parse_output_time_string(obj):
